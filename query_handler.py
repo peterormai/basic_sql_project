@@ -22,3 +22,10 @@ def query_result(conn, query):
             print(" ".join(map(str, row)))
     except:
         print("DONE!" + "\n")
+
+
+# def print_query_result(cursor):
+#     rows = cursor.fetchall()
+#     print("RESULT:" + "\n")
+#     for row in rows:
+#         print(" ".join(map(str, row)))

@@ -5,6 +5,8 @@ __pycache__/
 
 # OS-X
 .DS_Store
+.txt
+
 
 
 # Created by https://www.gitignore.io/api/python,visualstudiocode
