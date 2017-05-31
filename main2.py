@@ -17,14 +17,14 @@ def page_not_found(e):
     return render_template('404.html')
 
 
-# @app.route('/')
-# def index():
-#     """
-#     It shows a list of links which are pointing to specific roots.
-#     """
-#     title = "Application process "
-#     top_menu = ['ID', 'Created at', 'Views', 'Votes', 'Title', 'Edit', 'Delete', "Like", "Dislike"]
-#     return render_template('main.html', data_list=data_list, title=title, top_menu=top_menu)
+@app.route('/')
+def index():
+    """
+    It shows a list of links which are pointing to specific roots.
+    """
+    title = "Application process "
+    top_menu = ['ID', 'Created at', 'Views', 'Votes', 'Title', 'Edit', 'Delete', "Like", "Dislike"]
+    return render_template('main.html', data_list=data_list, title=title, top_menu=top_menu)
 
 
 @app.route('/mentors')
