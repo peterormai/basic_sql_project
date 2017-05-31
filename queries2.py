@@ -33,14 +33,34 @@ def fetch_database(query, tuple_paramerters=None):
 
 def mentors_and_schools():
     return fetch_database("""SELECT CONCAT(mentors.first_name, ' ', mentors.last_name) AS name, schools.name, schools.country
-                    FROM mentors LEFT JOIN schools ON mentors.city=schools.city ORDER BY mentors.id""")
+                    FROM mentors LEFT JOIN schools ON mentors.city=schools.city ORDER BY mentors.id;""")
 
 
 def mentors_and_all_schools():
     return fetch_database("""SELECT CONCAT(mentors.first_name, ' ', mentors.last_name) AS name, schools.name, schools.country
-                    FROM mentors FULL JOIN schools ON mentors.city=schools.city ORDER BY mentors.id""")
+                    FROM mentors FULL JOIN schools ON mentors.city=schools.city ORDER BY mentors.id;""")
 
 
 def mentors_by_country():
     return fetch_database("""SELECT schools.country, COUNT(mentors.last_name) FROM schools LEFT JOIN mentors
-                            ON schools.city=mentors.city GROUP BY schools.country ORDER BY schools.country""")
+                            ON schools.city=mentors.city GROUP BY schools.country ORDER BY schools.country;""")
+
+
+def contacts():
+    return fetch_database("""SELECT schools.name, CONCAT(mentors.first_name, ' ', mentors.last_name) AS name
+                            FROM schools LEFT JOIN mentors ON schools.contact_person=mentors.id 
+                            ORDER BY schools.name;""")
+
+
+def applicants():
+    return fetch_database("""SELECT applicants.first_name, applicants.application_code, applicants_mentors.creation_date
+                            FROM applicants LEFT JOIN applicants_mentors
+                            ON applicants.id=applicants_mentors.applicant_id
+                            WHERE applicants_mentors.creation_date > '2016-01-01'
+                            ORDER BY applicants_mentors.creation_date DESC;""")
+
+
+def applicants_and_mentors():
+    return fetch_database("""SELECT applicants.first_name, applicants.application_code, mentors.first_name, mentors.last_name
+                            FROM applicants LEFT JOIN applicants_mentors ON applicants.id=applicants_mentors.applicant_id
+                            LEFT JOIN mentors ON applicants_mentors.mentor_id=mentors.id;""")

@@ -48,6 +48,27 @@ def show_mentors_by_country():
     return render_template('main.html', data_list=data_list, title=title)
 
 
+@app.route('/contacts')
+def show_contacts():
+    data_list = queries2.contacts()
+    title = "Contacts"
+    return render_template('main.html', data_list=data_list, title=title)
+
+
+@app.route('/applicants')
+def show_applicants():
+    data_list = queries2.applicants()
+    title = "Applicants"
+    return render_template('main.html', data_list=data_list, title=title)
+
+
+@app.route('/applicants-and-mentors')
+def show_applicants_and_mentors():
+    data_list = queries2.applicants_and_mentors()
+    title = "Applicants and mentors"
+    return render_template('main.html', data_list=data_list, title=title)
+
+
 def main():
     app.run(debug=True)
 
