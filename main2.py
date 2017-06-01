@@ -23,8 +23,19 @@ def index():
     It shows a list of links which are pointing to specific roots.
     """
     title = "Application process "
-    top_menu = ['ID', 'Created at', 'Views', 'Votes', 'Title', 'Edit', 'Delete', "Like", "Dislike"]
-    return render_template('main.html', data_list=data_list, title=title, top_menu=top_menu)
+    links = {'mentors': 'mentors',
+             'schools': 'all-school',
+             'mentors_by_country': 'mentors-by-country',
+             'contacts': 'contacts',
+             'applicants': 'applicants',
+             'applicants_and_mentors': 'applicants-and-mentors'}
+    menu = ['Show mentors and schools',
+            'Show mentors and all schools',
+            'Show mentors by country',
+            'Show contacts',
+            'Show applicants',
+            'Show applicants and mentors']
+    return render_template('list.html', links=links, menu=menu, title=title)
 
 
 @app.route('/mentors')
