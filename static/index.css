@@ -1,0 +1,36 @@
+body{
+    text-align: center;
+    margin-left: auto; 
+    margin-right:auto;
+    background-color: silver;
+}
+
+
+table, td{
+    text-align:center; 
+    margin-left:auto; 
+    margin-right:auto; 
+    width: auto;
+    border: solid;
+    padding: 10px;
+    background-color: royalblue;
+    table-layout: auto;
+}
+
+
+a{
+    text-decoration: none;
+    font-style: bold;
+    color: white;
+}
+
+
+button{
+    background-color: royalblue;
+    border-color: black;
+    margin: 10px;
+}
+
+.titles {
+    background-color: white;
+}
